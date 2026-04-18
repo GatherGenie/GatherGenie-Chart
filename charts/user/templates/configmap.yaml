@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: users-config
+  namespace: {{ .Values.namespace }}
+
+data:
+  PORT: "{{ .Values.config.PORT }}"
+  DB_HOST: "{{ .Values.config.DB_HOST }}"
+  DB_PORT: "{{ .Values.config.DB_PORT }}"
+  DB_NAME: "{{ .Values.config.DB_NAME }}"
+
+  USERS_SERVICE_URL: "{{ .Values.config.USERS_SERVICE_URL }}"
+  EVENTS_SERVICE_URL: "{{ .Values.config.EVENTS_SERVICE_URL }}"
+
+  RABBITMQ_HOST: "{{ .Values.config.RABBITMQ_HOST }}"
+  RABBITMQ_PORT: "{{ .Values.config.RABBITMQ_PORT }}"

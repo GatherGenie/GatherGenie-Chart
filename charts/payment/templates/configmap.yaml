@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-configmap
+  namespace: {{ .Values.namespace }}
+data:
+  PORT: "{{ .Values.config.PORT }}"
+  DB_HOST: "{{ .Values.config.DB_HOST }}"
+  DB_PORT: "{{ .Values.config.DB_PORT }}"
+  DB_NAME: "{{ .Values.config.DB_NAME }}"
+  BOOKING_SERVICE_URL: "{{ .Values.config.BOOKING_SERVICE_URL }}"
+  TICKET_SERVICE_URL: "{{ .Values.config.TICKET_SERVICE_URL }}"

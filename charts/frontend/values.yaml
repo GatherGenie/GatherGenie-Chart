@@ -1,0 +1,26 @@
+replicaCount: 3
+
+image:
+  repository: team3kubectl/frontend
+  tag: v1.1.1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+hpa:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  cpuUtilization: 50
+
+namespace: team3-ns

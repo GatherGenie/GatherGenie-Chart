@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-config
+  namespace: {{ .Values.nameSpace }}
+data:
+  PORT: "8007"
+  GEMINI_MODEL: gemini-flash-latest

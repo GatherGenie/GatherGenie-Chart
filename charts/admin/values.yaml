@@ -1,0 +1,32 @@
+replicaCount: 1
+namespace: team3-ns
+image:
+  repository: team3kubectl/admin-service
+  tag: v1.1.1
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8008
+  targetPort: 8008
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "300m"
+    memory: "256Mi"
+
+config:
+  NODE_ENV: "production"
+  PORT: "8008"
+  DB_HOST: "postgres-db"
+  DB_PORT: "5432"
+  DB_NAME: "eventdb"
+  JWT_EXPIRES_IN: "1d"
+
+secret:
+  DB_USER: postgres
+  DB_PASSWORD: postgres
+  JWT_SECRET: secret123

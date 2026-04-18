@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notification-configmap
+  namespace: {{ .Values.namespace }}
+data:
+  PORT: "{{ .Values.config.PORT }}"
+  REDIS_HOST: "{{ .Values.config.REDIS_HOST }}"
+  REDIS_PORT: "{{ .Values.config.REDIS_PORT }}"
+  RABBITMQ_HOST: "{{ .Values.config.RABBITMQ_HOST }}"
+  RABBITMQ_PORT: "{{ .Values.config.RABBITMQ_PORT }}"

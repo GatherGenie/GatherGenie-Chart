@@ -1,0 +1,46 @@
+replicaCount: 1
+
+namespace: team3-ns
+
+image:
+  repository: team3kubectl/users-service
+  tag: v1.1.1
+  pullPolicy: IfNotPresent
+
+secret:
+  DB_USER: postgres
+  DB_PASSWORD: postgres
+  
+service:
+  type: ClusterIP
+  port: 8001
+  targetPort: 8001
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
+
+config:
+  PORT: "8001"
+
+  DB_HOST: postgres-db
+  DB_PORT: "5432"
+  DB_NAME: postgres
+
+  USERS_SERVICE_URL: http://users-service:8001
+  EVENTS_SERVICE_URL: http://events-service:8002
+
+  RABBITMQ_HOST: rabbitmq
+  RABBITMQ_PORT: "5672"
+
+deployment:
+  minReadySeconds: 10
+  terminationGracePeriodSeconds: 30
+
+strategy:
+  maxUnavailable: 0
+  maxSurge: 1

@@ -1,0 +1,35 @@
+namespace: team3-ns
+
+replicaCount: 1
+
+image:
+  repository: redis
+  tag: 7.0-alpine
+  pullPolicy: IfNotPresent
+
+service:
+  port: 6379
+
+config:
+  REDIS_HOST: notification-redis
+  REDIS_PORT: "6379"
+
+serviceAccount:
+  create: true
+  name: redis-sa
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "200m"
+
+livenessProbe:
+  initialDelaySeconds: 15
+  periodSeconds: 10
+
+readinessProbe:
+  initialDelaySeconds: 5
+  periodSeconds: 5

@@ -1,0 +1,10 @@
+apiVersion:  storage.k8s.io/v1
+kind:  StorageClass
+metadata:
+  name:  mongo-storageclass
+  namespace: team3-ns
+provisioner:  nfs.csi.k8s.io
+parameters:
+  server:  13.206.107.137
+  share:  /var/nfs/general
+volumeBindingMode:  Immediate

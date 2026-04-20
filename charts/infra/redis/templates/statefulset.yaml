@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: notification-redis
+  namespace: {{ .Values.namespace }}
+spec:
+  serviceName: notification-redis
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: notification-redis
+  template:
+    metadata:
+      labels:
+        app: notification-redis
+    spec:
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: redis
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 6379
+          envFrom:
+            - configMapRef:
+                name: redis-config
+
+          livenessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+
+          readinessProbe:
+            tcpSocket:
+              port: 6379
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

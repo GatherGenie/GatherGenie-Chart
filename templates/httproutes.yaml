@@ -1,0 +1,200 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: users-route
+  namespace: team3-ns
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/users
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: users-service
+          port: 8001
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: events-route
+  namespace: team3-ns
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/events
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: events-service
+          port: 8002
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: bookings-route
+  namespace: team3-ns
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/bookings
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: booking-service
+          port: 8003
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: payment-route
+  namespace: team3-ns
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/payment
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: payment-service
+          port: 8004
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: tickets-route
+  namespace: team3-ns
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/tickets
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: ticket-service
+          port: 8005
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: notifications-route
+  namespace: team3-ns 
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/notifications
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: notification-service
+          port: 8006
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: ai-route
+  namespace: team3-ns 
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/ai
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: ai-service
+          port: 8007
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: admin-route
+  namespace: team3-ns 
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /api/admin
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
+      backendRefs:
+        - name: admin-service
+          port: 8008
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: frontend-route
+  namespace: team3-ns 
+spec:
+  parentRefs:
+    - name: event-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: frontend-service
+          port: 80

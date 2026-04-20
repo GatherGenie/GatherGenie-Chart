@@ -1,0 +1,3 @@
+global:
+  namespace: team-project
+  imagePullPolicy: IfNotPresent

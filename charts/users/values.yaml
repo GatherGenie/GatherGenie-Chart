@@ -1,4 +1,8 @@
 replicaCount: 1
+image:
+  repository: team3kubectl/users-service
+  tag: v1.1.1
+
 
 
 secret:

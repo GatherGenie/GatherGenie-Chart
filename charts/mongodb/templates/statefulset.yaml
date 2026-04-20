@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: mongodb
-          image: mongo:6.0
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
 
           command:
             - mongod
@@ -67,7 +67,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        storageClassName: team3-storageclass
+        storageClassName: {{ .Values.storage.className }}
         resources:
           requests:
             storage: 1Gi

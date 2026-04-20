@@ -20,7 +20,7 @@ spec:
       terminationGracePeriodSeconds: 30
       containers:
         - name: postgres
-          image: postgres:15
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 5432
 
@@ -61,7 +61,7 @@ spec:
       spec:
         accessModes:
           - "ReadWriteOnce"
-        storageClassName: team3-storageclass
+        storageClassName: {{ .Values.storage.className }}
         resources:
           requests:
             storage: 1Gi

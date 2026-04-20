@@ -1,0 +1,19 @@
+
+image:
+  repository: mongo
+  tag: "6.0"
+
+service:
+  port: 27017
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "256Mi"
+  limits:
+    cpu: "300m"
+    memory: "512Mi"
+
+storage:
+  className: team3-storageclass
+  size: 1Gi

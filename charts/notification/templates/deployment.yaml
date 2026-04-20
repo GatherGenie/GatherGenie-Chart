@@ -22,7 +22,7 @@ spec:
       containers:
         - name: notification-container
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.imagePullPolicy }}
           ports:
             - containerPort: {{ .Values.service.targetPort }}
 

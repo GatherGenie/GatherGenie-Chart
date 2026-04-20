@@ -1,10 +1,5 @@
 replicaCount: 3
 
-image:
-  repository: team3kubectl/frontend
-  tag: v1.1.1
-  pullPolicy: IfNotPresent
-
 service:
   type: ClusterIP
   port: 80

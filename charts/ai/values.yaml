@@ -1,8 +1,6 @@
 replicaCount: 1
 nameSpace: team3-ns
-image:
-  repository: team3kubectl/ai-service
-  tag: v1.1.1
+
 service:
   port: 8007
   targetPort: 8007

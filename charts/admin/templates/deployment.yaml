@@ -27,8 +27,8 @@ spec:
     spec:
       containers:
         - name: admin-service
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.imagePullPolicy }}
 
           ports:
             - containerPort: {{ .Values.service.port }}

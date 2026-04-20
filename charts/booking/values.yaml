@@ -1,9 +1,6 @@
 replicaCount: 2
 namespace: team3-ns
-image:
-  repository: team3kubectl/booking-service
-  tag: v1.1.1
-  pullPolicy: Always
+
 service:
   type: ClusterIP
   port: 8003

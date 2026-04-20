@@ -2,11 +2,6 @@ replicaCount: 1
 
 namespace: team3-ns
 
-image:
-  repository: team3kubectl/users-service
-  tag: v1.1.1
-  pullPolicy: IfNotPresent
-
 secret:
   DB_USER: postgres
   DB_PASSWORD: postgres

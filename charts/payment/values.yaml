@@ -2,11 +2,6 @@ namespace: team3-ns
 
 replicaCount: 3
 
-image:
-  repository: team3kubectl/payment-service
-  tag: v1.1.1
-  pullPolicy: IfNotPresent
-
 service:
   type: ClusterIP
   port: 8004

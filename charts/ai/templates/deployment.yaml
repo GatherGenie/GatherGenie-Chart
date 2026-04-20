@@ -40,8 +40,8 @@ spec:
       #                 - test
       containers:
         - name: ai-service
-          image: {{.Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: Always
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.imagePullPolicy }}
           ports:
             - containerPort: 8007
           envFrom:

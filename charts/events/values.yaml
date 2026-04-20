@@ -1,11 +1,6 @@
 replicaCount: 3
 nameSpace: team3-ns
 
-image:
-  repository: team3kubectl/events-service
-  tag: v1.1.0
-  pullPolicy: Always
-
 deployment:
   strategy:
     type: RollingUpdate

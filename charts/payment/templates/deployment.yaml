@@ -20,8 +20,9 @@ spec:
     spec:
       containers:
         - name: payment-deploy
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | default .Values.global.imagePullPolicy }}
+          
           ports:
             - containerPort: {{ .Values.service.port }}
           envFrom:

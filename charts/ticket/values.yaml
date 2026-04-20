@@ -2,11 +2,6 @@ namespace: team3-ns
 
 replicaCount: 1
 
-image:
-  repository: team3kubectl/ticket-service
-  pullPolicy: IfNotPresent
-  tag: "v1.1.1"
-
 service:
   type: ClusterIP
   port: 8005

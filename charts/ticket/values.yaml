@@ -14,12 +14,12 @@ resources:
 
 postgres:
   image: "postgres:15"
-  storage: 2Gi
+  storage: 1Gi
   port: 5432
   dbName: "ticket_db"
   username: "user"
   password: "password"
-  url: "postgresql://user:password@ticket-db:5432/ticket_db"
+  url: "postgresql://user:password@postgres-db:5432/ticket_db"
 
 config:
   

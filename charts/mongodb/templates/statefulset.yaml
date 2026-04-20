@@ -70,4 +70,4 @@ spec:
         storageClassName: team3-storageclass
         resources:
           requests:
-            storage: 2Gi
+            storage: 1Gi

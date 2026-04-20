@@ -55,7 +55,8 @@ spec:
     - metadata:
         name: postgres-storage
       spec:
-        accessModes: ["ReadWriteOnce"]   
+        accessModes:
+          - "ReadWriteOnce"
         storageClassName: team3-storageclass
         resources:
           requests:

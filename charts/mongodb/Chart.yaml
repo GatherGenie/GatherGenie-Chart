@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mongodb-chart
+name: mongodb
 description: Helm chart for MongoDB
 version: 1.0.0
 appVersion: "1.1.1"

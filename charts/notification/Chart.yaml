@@ -1,5 +1,5 @@
 apiVersion: v2
-name: notification-chart
+name: notification
 description: Helm chart for Notification Service
 type: application
 version: 1.0.0

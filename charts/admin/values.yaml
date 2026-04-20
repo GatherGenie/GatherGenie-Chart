@@ -1,4 +1,3 @@
-replicaCount: 1
 namespace: team3-ns
 
 service:

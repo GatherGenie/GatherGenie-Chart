@@ -1,4 +1,3 @@
-replicaCount: 3
 nameSpace: team3-ns
 
 deployment:

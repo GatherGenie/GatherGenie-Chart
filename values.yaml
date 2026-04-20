@@ -18,7 +18,6 @@ global:
     maxReplicas: 10
     cpu: 70
 
-
 storageClass:
   name: team3-storageclass
   default: "true"
@@ -28,67 +27,3 @@ storageClass:
   nfs:
     server: 172.31.1.190 
     share: /mnt/nfs 
-
-# ------------services-------------
-admin:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/admin-service
-    tag: v1.1.1
-
-ai:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/ai-service
-    tag: v1.1.1
-
-booking:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/booking-service
-    tag: v1.1.1
-
-events:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/events-service
-    tag: v1.1.1
-
-frontend:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/frontend
-    tag: v1.1.1
-  
-notification:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/notification-service
-    tag: v1.1.1
-
-payment:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/payment-microservice
-    tag: v1.1.1
-
-ticket:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/ticket-service
-    tag: v1.1.1
-
-users:
-  enabled: true
-  replicaCount: 1
-  image:
-    repository: team3kubectl/users-service
-    tag: v1.1.1

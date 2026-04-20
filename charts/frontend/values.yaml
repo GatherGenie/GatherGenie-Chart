@@ -16,4 +16,4 @@ hpa:
   maxReplicas: 3
   cpuUtilization: 50
 
-namespace: team3-ns
+namespace: {{ .Release.Namespace }}

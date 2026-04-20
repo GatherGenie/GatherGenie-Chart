@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: admin-deployment
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.Namespace }}
   labels:
     app: admin-service
 
@@ -50,7 +50,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8008
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 10
             periodSeconds: 5
             failureThreshold: 3
@@ -58,7 +58,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /health
-              port: 8008
+              port: {{ .Values.service.port }}
             initialDelaySeconds: 30
             periodSeconds: 10
             failureThreshold: 3

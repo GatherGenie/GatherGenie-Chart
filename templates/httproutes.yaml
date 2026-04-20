@@ -2,7 +2,7 @@ apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: users-route
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
     - name: event-gateway
@@ -19,13 +19,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: users-service
-          port: 8001
+          port: {{ .Values.users.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: events-route
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
     - name: event-gateway
@@ -42,13 +42,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: events-service
-          port: 8002
+          port: {{ .Values.events.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: bookings-route
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
     - name: event-gateway
@@ -65,13 +65,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: booking-service
-          port: 8003
+          port: {{ .Values.booking.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: payment-route
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
     - name: event-gateway
@@ -88,13 +88,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: payment-service
-          port: 8004
+          port: {{ .Values.payment.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: tickets-route
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 spec:
   parentRefs:
     - name: event-gateway
@@ -111,13 +111,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: ticket-service
-          port: 8005
+          port: {{ .Values.ticket.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: notifications-route
-  namespace: team3-ns 
+  namespace: {{ .Release.Namespace }} 
 spec:
   parentRefs:
     - name: event-gateway
@@ -134,13 +134,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: notification-service
-          port: 8006
+          port: {{ .Values.notification.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: ai-route
-  namespace: team3-ns 
+  namespace: {{ .Release.Namespace }} 
 spec:
   parentRefs:
     - name: event-gateway
@@ -157,13 +157,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: ai-service
-          port: 8007
+          port: {{ .Values.ai.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: admin-route
-  namespace: team3-ns 
+  namespace: {{ .Release.Namespace }} 
 spec:
   parentRefs:
     - name: event-gateway
@@ -180,13 +180,13 @@ spec:
               replacePrefixMatch: /
       backendRefs:
         - name: admin-service
-          port: 8008
+          port: {{ .Values.admin.service.port }}
 ---
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: frontend-route
-  namespace: team3-ns 
+  namespace: {{ .Release.Namespace }} 
 spec:
   parentRefs:
     - name: event-gateway
@@ -197,4 +197,4 @@ spec:
             value: /
       backendRefs:
         - name: frontend-service
-          port: 80
+          port: {{ .Values.frontend.service.port }}

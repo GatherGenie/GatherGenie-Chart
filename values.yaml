@@ -26,8 +26,8 @@ storageClass:
   volumeBindingMode: Immediate
 
   nfs:
-    server: 172.31.1.190 #sample ip of sinan
-    share: /mnt/nfs # sample path of sinan
+    server: 172.31.1.190 
+    share: /mnt/nfs 
 
 # ------------services-------------
 admin:

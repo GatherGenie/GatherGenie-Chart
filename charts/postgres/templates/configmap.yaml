@@ -2,10 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-configmap
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
 data:
   DB_HOST: "postgres-db"
   DB_PORT: "5432"
   DB_NAME: "postgres"
+  POSTGRES_DB: "postgres"
 
   POSTGRES_MULTIPLE_DATABASES: "users_db,booking_db,payment_db,ticket_db"

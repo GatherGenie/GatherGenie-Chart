@@ -1,4 +1,4 @@
-namespace: team3-ns
+namespace: {{ .Release.Namespace }}
 
 replicaCount: 1
 

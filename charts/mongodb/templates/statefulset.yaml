@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: events-mongodb
-  namespace: team3-ns
+  namespace: {{ .Release.Namespace }}
   labels:
     app: mongodb
 spec:

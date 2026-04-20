@@ -41,3 +41,8 @@ secret:
   dbPassword: adminpass
   rabbitmqUser: guest
   rabbitmqPassword: guest
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/booking-service
+  tag: v1.1.1

@@ -24,3 +24,8 @@ secret:
   DB_USER: postgres
   DB_PASSWORD: postgres
   JWT_SECRET: secret123
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/admin-service
+  tag: v1.1.1

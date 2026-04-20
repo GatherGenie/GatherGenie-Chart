@@ -42,3 +42,8 @@ readinessProbe:
   path: /health
   initialDelaySeconds: 5
   periodSeconds: 5
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/notification-service
+  tag: v1.1.1

@@ -16,3 +16,9 @@ hpa:
   maxReplicas: 3
   cpuUtilization: 50
 
+
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/frontend
+  tag: v1.1.1

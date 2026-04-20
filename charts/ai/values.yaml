@@ -2,3 +2,8 @@
 service:
   port: 8007
   targetPort: 8007
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/ai-service
+  tag: v1.1.1

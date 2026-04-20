@@ -32,3 +32,8 @@ probes:
     path: /health
     initialDelaySeconds: 20
     periodSeconds: 10
+# Values imported from root during App of Apps transition
+replicaCount: 1
+image:
+  repository: team3kubectl/payment-microservice
+  tag: v1.1.1

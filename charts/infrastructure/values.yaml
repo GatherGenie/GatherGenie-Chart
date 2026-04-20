@@ -1,1 +1,28 @@
 # Infrastructure Values
+users:
+  service:
+    port: 8001
+events:
+  service:
+    port: 8002
+booking:
+  service:
+    port: 8003
+payment:
+  service:
+    port: 8004
+ticket:
+  service:
+    port: 8005
+notification:
+  service:
+    port: 8006
+ai:
+  service:
+    port: 8007
+admin:
+  service:
+    port: 8008
+frontend:
+  service:
+    port: 80

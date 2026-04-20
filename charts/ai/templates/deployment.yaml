@@ -4,7 +4,7 @@ metadata:
   name: ai-deployment
   labels:
     app: ai-service
-  namespace: {{ .Values.nameSpace }}
+  namespace: {{ .Release.Namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   strategy:

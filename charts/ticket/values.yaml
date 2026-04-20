@@ -16,9 +16,9 @@ postgres:
   storage: 1Gi
   port: 5432
   dbName: "ticket_db"
-  username: "user"
-  password: "password"
-  url: "postgresql://user:password@postgres-db:5432/ticket_db"
+  username: "admin"
+  password: "adminpass"
+  url: "postgresql://admin:adminpass@postgres-db:5432/ticket_db"
 
 config:
   

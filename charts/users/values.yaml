@@ -2,8 +2,8 @@ replicaCount: 1
 
 
 secret:
-  DB_USER: postgres
-  DB_PASSWORD: postgres
+  DB_USER: admin
+  DB_PASSWORD: adminpass
   
 service:
   type: ClusterIP
@@ -23,7 +23,7 @@ config:
 
   DB_HOST: postgres-db
   DB_PORT: "5432"
-  DB_NAME: postgres
+  DB_NAME: users_db
 
   USERS_SERVICE_URL: http://users-service:8001
   EVENTS_SERVICE_URL: http://events-service:8002

@@ -1,0 +1,4 @@
+apiVersion: v2
+name: infrastructure
+description: Gateway and Storage
+version: 1.0.0

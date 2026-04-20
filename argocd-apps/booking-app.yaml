@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gathergenie-booking
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/GatherGenie/GatherGenie-Chart.git'
+    targetRevision: main
+    path: charts/booking
+    helm:
+      valueFiles:
+        - values.yaml
+        - ../../values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev-env
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

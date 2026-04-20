@@ -16,7 +16,7 @@ ticket:
     port: 8005
 notification:
   service:
-    port: 8006
+    port: 80
 ai:
   service:
     port: 8007

@@ -1,6 +1,5 @@
 replicaCount: 1
 
-namespace: {{ .Release.Namespace }}
 
 secret:
   DB_USER: postgres

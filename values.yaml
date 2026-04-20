@@ -18,6 +18,18 @@ global:
     maxReplicas: 10
     cpu: 70
 
+
+storageClass:
+  name: team3-storageclass
+  default: "true"
+  reclaimPolicy: Delete
+  volumeBindingMode: Immediate
+
+  nfs:
+    server: 172.31.1.190 #sample ip of sinan
+    share: /mnt/nfs # sample path of sinan
+
+# ------------services-------------
 admin:
   enabled: true
   replicaCount: 1

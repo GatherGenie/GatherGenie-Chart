@@ -67,7 +67,7 @@ spec:
       spec:
         accessModes:
           - ReadWriteOnce
-        storageClassName: mongo-storageclass
+        storageClassName: team3-storageclass
         resources:
           requests:
             storage: 2Gi

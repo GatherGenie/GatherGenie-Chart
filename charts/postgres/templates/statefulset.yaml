@@ -56,7 +56,7 @@ spec:
         name: postgres-storage
       spec:
         accessModes: ["ReadWriteOnce"]   
-        storageClassName: payment-storageclass
+        storageClassName: team3-storageclass
         resources:
           requests:
             storage: 5Gi

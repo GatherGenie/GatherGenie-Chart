@@ -1,5 +1,5 @@
 apiVersion: v2
-name: platform-chart
+name: Gathergenie-chart
 description: Full microservices platform
 version: 1.0.0
 
@@ -43,16 +43,16 @@ dependencies:
   # Databases
   - name: redis
     version: 1.0.0
-    repository: "file://charts/infra/redis"
+    repository: "file://charts/redis"
 
   - name: rabbitmq
     version: 1.0.0
-    repository: "file://charts/infra/rabbitmq"
+    repository: "file://charts/rabbitmq"
 
   - name: postgres
     version: 1.0.0
-    repository: "file://charts/infra/postgres"
+    repository: "file://charts/postgres"
 
   - name: mongodb
     version: 1.0.0
-    repository: "file://charts/infra/mongodb"
+    repository: "file://charts/mongodb"

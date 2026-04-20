@@ -17,10 +17,15 @@ spec:
       labels:
         app: postgres
     spec:
+      securityContext:
+        fsGroup: 999
       terminationGracePeriodSeconds: 30
       containers:
         - name: postgres
           image: postgres:15
+          securityContext:
+            runAsUser: 999
+            runAsGroup: 999
           ports:
             - containerPort: 5432
 

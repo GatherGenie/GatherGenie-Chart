@@ -1,5 +1,0 @@
-apiVersion: v2
-name: Gathergenie-chart
-description: Full microservices platform
-version: 1.0.0
-

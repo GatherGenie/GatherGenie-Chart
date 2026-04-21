@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: 
+kind: Rollout
 metadata:
   name: {{ .Release.Name }}-frontend
   namespace: {{ .Release.Namespace }}
@@ -10,6 +10,11 @@ spec:
   selector:
     matchLabels:
       app: frontend
+  strategy:
+    blueGreen:
+      activeService: {{ .Release.Name }}-frontend-service
+      previewService: {{ .Release.Name }}-frontend-service-preview
+      autoPromotionEnabled: false
   template:
     metadata:
       labels:

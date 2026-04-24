@@ -14,7 +14,7 @@ global:
   
   autoscaling:
     enabled: true
-    minReplicas: 2
+    minReplicas: 3
     maxReplicas: 10
     cpu: 70
 

@@ -24,3 +24,9 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+  spec:
+  ignoreDifferences:
+    - group: argoproj.io
+      kind: Rollout
+      jsonPointers:
+        - /spec/replicas
